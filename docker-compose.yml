@@ -1,0 +1,21 @@
+services:
+  aroundhub_db:
+    image: mariadb:10.6
+    container_name: esop_db
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: cdcdcd001!
+      MARIADB_DATABASE: esop
+      MARIADB_USER: esop
+      MARIADB_PASSWORD: cdcdcd001!
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./master_db/data:/var/lib/mysql
+      - ./master_db/config/:/etc/mysql/conf.d
+  aroundhub_redis:
+    image: redis:7.0.0
+    container_name: esop_redis
+    restart: always
+    ports:
+      - "6381:6379"
