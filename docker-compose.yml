@@ -3,11 +3,8 @@ services:
     image: mariadb:10.6
     container_name: esop_db
     restart: always
-    environment:
-      MARIADB_ROOT_PASSWORD: cdcdcd001!
-      MARIADB_DATABASE: esop
-      MARIADB_USER: esop
-      MARIADB_PASSWORD: cdcdcd001!
+    env-env_file:
+      - ./env
     ports:
       - "3308:3306"
     volumes:
